@@ -1,65 +1,49 @@
-# Open Ai API
-OpenAI API
-# Installation
+# OpenAI API Integration
+This package enables seamless integration with the OpenAI API in your PHP applications.
+## Installation
+Install the package via Composer:
 ```bash
 composer require marxolity/open-ai
 ```
-## Config
+## Configuration
+Publish the package configuration:
 ```bash
 php artisan vendor:publish --provider="Marxolity\OpenAi\Providers\OpenAIServiceProvider" --tag="config"
 ```
-## Setup -> Env
+Set up your environment variables:
 ```bash
-MRX_OPEN_AI_API_KEY="<<API_KEY>>"
+MRX_OPEN_AI_API_KEY="<<YOUR_API_KEY>>"
 ```
-## config/app.php
+Update config/app.php:
 ```php
     'providers' => [
-        ...
+        // ...
         Marxolity\OpenAi\Providers\OpenAIServiceProvider::class,
     ],
     'aliases' => Facade::defaultAliases()->merge([
-        ...
+        // ...
         'OpenAi' => \Marxolity\OpenAi\Facades\OpenAi::class,
     ])->toArray(),
 ```
 ## Usage
-### Usage - get response message
+### Retrieve Response Message
 ```php
-   # Request: ResponseMessage
-    \OpenAi::query("What is Laravel?")
-        ->send()->responseMessage
-   # Response: String
+   $responseMessage = \OpenAi::query("What is Laravel?")->send()->responseMessage;
+```
+Response Message:
+```php
    Laravel is a free, open-source PHP web framework used for developing web applications. It fol...
 ```
-### Usage - format Array
+### Format Output
+Retrieve as Array
 ```php
-   # Request: toArray
-    \OpenAi::query("What is Laravel?")
-        ->send()->toArray()
-   # Response Array
-        "id" => "chatcmpl-8MaaUeOf5caMryoXfjpxKo3F0Q2kO"
-        "object" => "chat.completion"
-        "created" => 1700394550
-        "model" => "gpt-3.5-turbo-0613"
-        "choices" => array:1 [▶]
-        "usage" => array:3 [▶]
+   $responseArray = \OpenAi::query("What is Laravel?")->send()->toArray();
 ```
-
-### Usage - format JSON
+Retrieve as JSON
 ```php
-   # Request: toArray
-    \OpenAi::query("What is Laravel?")
-        ->send()->toJson()
-   # Response String
-    {"id":"chatcmpl-8MacLVh8MyGsPuATmdeDlm0GUQnkp","object":"chat.completion","created":1700394665,"model":"gpt-3.5-turbo-0613","choices":[{"index":0,"message":{"ro ...
+   $responseJson = \OpenAi::query("What is Laravel?")->send()->toJson();
 ```
-### Usage - format XML
+Retrieve as XML
 ```php
-   # Request: XML
-   \OpenAi::query("What is Laravel?")
-        ->send()->toXml()
-   # Response String
-    <?xml version="1.0"?><root><id>chatcmpl-8Maf9dDoLGOQDzxc7ZfcSyK7nqxm3</id><object>chat.completion</object><created>1700394839</created><model>gpt-3.5-turbo-0613</model><choices><...
+   $responseXml = \OpenAi::query("What is Laravel?")->send()->toXml();
 ```
-
