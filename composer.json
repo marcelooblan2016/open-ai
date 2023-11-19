@@ -1,0 +1,33 @@
+{
+    "name": "marxolity/open-ai",
+    "description": "OpenAI API",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Marxolity\\OpenAi\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcelo Oblan",
+            "email": "marcelo.oblan2016@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^5.0|^6.0|^7.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Marxolity\\OpenAi\\Providers\\OpenAIServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
