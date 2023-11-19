@@ -1,24 +1,63 @@
 <?php
 
 namespace Marxolity\OpenAi\Services\Ai;
-use Illuminate\Support\Facades\Http;
+use Marxolity\OpenAi\Traits\Response;
+use Marxolity\OpenAi\Traits\Validation;
+use Marxolity\OpenAi\Traits\Interfaces\ResponseInterface;
+use Marxolity\OpenAi\Traits\Interfaces\ValidationInterface;
+use Arr;
 
-class OpenAi implements AiInterface
+class OpenAi extends Base implements AiInterface, ResponseInterface, ValidationInterface
 {
-    protected $apiKey;
-    protected $model;
-    protected $allowedModels = [
-        'gpt-3.5-turbo',
-    ];
+    use Validation, Response;
+    /**
+     * send the request build to openai endpoint
+     * @return string (XML or JSON)
+     **/
+    public function send(): self
+    {
+        $this->validatePreRequisites();
 
-    protected $endPoint = 'https://api.openai.com/v1/chat/completions';
+        $response = $this->sendRequest();
 
-    public function __construct() {
-        $this->apiKey = config('ai.open_ai.api_key');
-        $this->model = config('ai.open_ai.default_model');
+        $jsonData = $response->json();
+        $this->responseRaw = $jsonData;
+        // Parse Message
+        $responseMessage = Arr::get($this->responseRaw, 'choices.0.message.content');
+        // Error Message
+        if (empty($responseMessage)) $responseMessage = Arr::get($this->responseRaw, 'error.message');
+        // Set response message
+        $this->responseMessage = $responseMessage;
+
+        return $this;
     }
+    /**
+     * Set Current Model
+     * @param string $model
+     * @return self
+     **/
+    public function setModel(string $model): self
+    {
+        $this->model = $model;
 
-    public function test() {
-    	dd("TEST BOOM");
+        return $this;
+    }
+    /**
+     * Set Query to send
+     * @param string $query
+     * @return self
+     **/
+    public function query(string $query): self
+    {
+        $this->contentQuery = $query;
+
+        return $this;
+    }
+    /**
+     * @return string Current model
+     **/
+    public function getModel(): string
+    {
+        return $this->model;
     }
 }
