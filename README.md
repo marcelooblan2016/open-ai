@@ -1,11 +1,18 @@
-# OpenAI API Integration
-This package enables seamless integration with the OpenAI API in your PHP applications.
-- Supported Models: 'gpt-3.5-turbo'
+# OpenAI API Integration - Laravel
+***
+A Laravel Package that facilitates effortless integration of the OpenAI API into PHP applications, ensuring seamless connectivity and interaction with OpenAI's services within the Laravel Framework.
+
+| Supported Models| Date|
+| ------------- |-----:|
+| `gpt-3.5-turbo` | Nov 20, 2023|
+
+---
 ## Installation
-Install the package via Composer:
+Install the package via Composer [Reference](https://packagist.org/packages/marxolity/open-ai):
 ```bash
 composer require marxolity/open-ai
 ```
+---
 ## Configuration
 Publish the package configuration: (config/ai.php)
 ```bash
@@ -15,21 +22,15 @@ Set up your environment variables:
 ```bash
 MRX_OPEN_AI_API_KEY="<<YOUR_API_KEY>>"
 ```
-Update config/app.php:
-```php
-    'providers' => [
-        // ...
-        \Marxolity\OpenAi\Providers\OpenAIServiceProvider::class,
-    ],
-    'aliases' => Facade::defaultAliases()->merge([
-        // ...
-        'OpenAi' => \Marxolity\OpenAi\Facades\OpenAi::class,
-    ])->toArray(),
-```
+---
 ## Usage
-### Retrieve Response Message
 ```php
-   $responseMessage = \OpenAi::query("What is Laravel?")->send()->responseMessage;
+   use \Marxolity\OpenAi\Facades\OpenAi;
+```
+Retrieve Response Message
+
+```php
+   $responseMessage = OpenAi\Facades\OpenAi::query("What is Laravel?")->send()->responseMessage;
 ```
 Response Message:
 ```php
@@ -38,13 +39,13 @@ Response Message:
 ### Format Output
 Retrieve as Array
 ```php
-   $responseArray = \OpenAi::query("What is Laravel?")->send()->toArray();
+   $responseArray = OpenAi::query("What is Laravel?")->send()->toArray();
 ```
 Retrieve as JSON
 ```php
-   $responseJson = \OpenAi::query("What is Laravel?")->send()->toJson();
+   $responseJson = OpenAi::query("What is Laravel?")->send()->toJson();
 ```
 Retrieve as XML
 ```php
-   $responseXml = \OpenAi::query("What is Laravel?")->send()->toXml();
+   $responseXml = OpenAi\Facades\OpenAi::query("What is Laravel?")->send()->toXml();
 ```
