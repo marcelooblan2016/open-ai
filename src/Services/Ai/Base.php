@@ -12,7 +12,7 @@ class Base
     protected $apiKey;
     // Models
     protected $model;
-    protected $allowedModels = ['gpt-3.5-turbo'];
+    protected $allowedModels = ['gpt-3.5-turbo', 'gpt-3.5-turbo-1106'];
     // Content
     protected $contentQuery;
     // End points
