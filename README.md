@@ -30,7 +30,7 @@ MRX_OPEN_AI_API_KEY="<<YOUR_API_KEY>>"
 Retrieve Response Message
 
 ```php
-   $responseMessage = OpenAi\Facades\OpenAi::query("What is Laravel?")->send()->responseMessage;
+   $responseMessage = OpenAi::query("What is Laravel?")->send()->responseMessage;
 ```
 Response Message:
 ```php
@@ -47,5 +47,5 @@ Retrieve as JSON
 ```
 Retrieve as XML
 ```php
-   $responseXml = OpenAi\Facades\OpenAi::query("What is Laravel?")->send()->toXml();
+   $responseXml = OpenAi::query("What is Laravel?")->send()->toXml();
 ```
