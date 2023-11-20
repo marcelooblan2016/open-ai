@@ -1,12 +1,13 @@
 # OpenAI API Integration
 This package enables seamless integration with the OpenAI API in your PHP applications.
+- Supported Models: 'gpt-3.5-turbo'
 ## Installation
 Install the package via Composer:
 ```bash
 composer require marxolity/open-ai
 ```
 ## Configuration
-Publish the package configuration:
+Publish the package configuration: (config/ai.php)
 ```bash
 php artisan vendor:publish --provider="Marxolity\OpenAi\Providers\OpenAIServiceProvider" --tag="config"
 ```
@@ -18,7 +19,7 @@ Update config/app.php:
 ```php
     'providers' => [
         // ...
-        Marxolity\OpenAi\Providers\OpenAIServiceProvider::class,
+        \Marxolity\OpenAi\Providers\OpenAIServiceProvider::class,
     ],
     'aliases' => Facade::defaultAliases()->merge([
         // ...
