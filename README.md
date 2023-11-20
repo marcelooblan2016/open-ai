@@ -23,15 +23,21 @@ php artisan vendor:publish --provider="Marxolity\OpenAi\Providers\OpenAIServiceP
 ```
 Set up your environment variables:
 ```bash
-MRX_OPEN_AI_API_KEY="<<YOUR_API_KEY>>"
+OPENAI_API_KEY="<<YOUR_API_KEY>>"
 ```
 ---
 ## Usage
 ```php
    use \Marxolity\OpenAi\Facades\OpenAi;
 ```
-Retrieve Response Message
+Changing Model then Retrieve responseMessage (Ex: Change model to `gpt-4`)
+```php
+   $responseMessage = OpenAi::query("What is Laravel?")
+        ->setModel('gpt-4')
+        ->send()->responseMessage;
+```
 
+Retrieve Response Message
 ```php
    $responseMessage = OpenAi::query("What is Laravel?")->send()->responseMessage;
 ```
