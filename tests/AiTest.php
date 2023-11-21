@@ -3,7 +3,7 @@ namespace Marxolity\OpenAi\Tests;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Http;
-use Marxolity\OpenAi\Providers\OpenAIServiceProvider;
+use Marxolity\OpenAi\OpenAIServiceProvider;
 use Marxolity\OpenAi\Facades\OpenAi;
 use Mockery\MockInterface;
 use Arr;
@@ -19,6 +19,11 @@ class AiTest extends \Orchestra\Testbench\TestCase
     protected function getPackageProviders($app)
     {
         return [OpenAIServiceProvider::class];
+    }
+
+    protected function configLoad()
+    {
+        $this->app['config']->set('open-ai.api_key', 'api-key');
     }
 
     public function response()
@@ -47,7 +52,7 @@ class AiTest extends \Orchestra\Testbench\TestCase
 
     public function testAiResponseArray()
     {
-        $this->app['config']->set('ai.open_ai.api_key', 'api-key');
+        $this->configLoad();
 
         Http::fake([
             '*' => Http::response( $this->response() ),
@@ -62,7 +67,7 @@ class AiTest extends \Orchestra\Testbench\TestCase
 
     public function testAiResponseJson()
     {
-        $this->app['config']->set('ai.open_ai.api_key', 'api-key');
+        $this->configLoad();
 
         Http::fake([
             '*' => Http::response( $this->response() ),
@@ -77,7 +82,7 @@ class AiTest extends \Orchestra\Testbench\TestCase
 
     public function testAiResponseXml()
     {
-        $this->app['config']->set('ai.open_ai.api_key', 'api-key');
+        $this->configLoad();
 
         Http::fake([
             '*' => Http::response( $this->response() ),
@@ -92,7 +97,7 @@ class AiTest extends \Orchestra\Testbench\TestCase
 
     public function testAiSend()
     {
-        $this->app['config']->set('ai.open_ai.api_key', 'api-key');
+        $this->configLoad();
 
         Http::fake([
             '*' => Http::response( $this->response() ),
