@@ -2,12 +2,15 @@
 ***
 A Laravel Package that facilitates effortless integration of the OpenAI API into PHP applications, ensuring seamless connectivity and interaction with OpenAI's services within the Laravel Framework.
 
-| Supported Models| Note | Date|
+###### Note: Please be advised that other GPT models may be utilized at your discretion, acknowledging associated risks. 
+---
+| Tested Models (Limited to `GPT Models`)| Note | Date|
 | ------------- | ------------- |-----:|
 |`gpt-3.5-turbo`|**`default`**| Nov 20, 2023|
 | `gpt-3.5-turbo-1106`| | Nov 20, 2023|
 | `gpt-4` | The account must reach at minimum **Tier 1** status. |  Nov 20, 2023|
 | `gpt-4-vision-preview` | The account must reach at minimum **Tier 1** status. |  Nov 20, 2023|
+
 
 ---
 ## Installation
