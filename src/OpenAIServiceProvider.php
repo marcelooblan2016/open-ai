@@ -1,6 +1,6 @@
 <?php
 
-namespace Marxolity\OpenAi\Providers;
+namespace Marxolity\OpenAi;
 
 use Illuminate\Support\ServiceProvider;
 use Marxolity\OpenAi\Services\Ai\OpenAi;
@@ -17,9 +17,8 @@ class OpenAIServiceProvider extends ServiceProvider
     {
         $this->app->bind(AiInterface::class, OpenAi::class);
 
-        $this->mergeConfigFrom(__DIR__.'/../config/ai.php', 'ai');
+        $this->mergeConfigFrom(__DIR__.'/../config/open-ai.php', 'open-ai');
     }
-
     /**
      * Bootstrap services.
      *
@@ -28,11 +27,10 @@ class OpenAIServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            // php artisan vendor:publish --provider="Marxolity\OpenAi\Providers\OpenAIServiceProvider" --tag="config"
+            // php artisan vendor:publish --provider="Marxolity\OpenAi\OpenAIServiceProvider" --tag="config"
             $this->publishes([
-              __DIR__.'/../config/ai.php' => config_path('ai.php'),
+              __DIR__.'/../config/open-ai.php' => config_path('open-ai.php'),
             ], 'config');
-        
           }
     }
 }
