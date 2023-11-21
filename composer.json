@@ -23,7 +23,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Marxolity\\OpenAi\\Providers\\OpenAIServiceProvider"
+                "Marxolity\\OpenAi\\OpenAIServiceProvider"
             ]
         }
     },

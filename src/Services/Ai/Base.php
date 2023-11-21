@@ -24,8 +24,8 @@ class Base
     protected $endPoint = 'https://api.openai.com/v1/chat/completions';
 
     public function __construct() {
-        $this->apiKey = config('ai.open_ai.api_key');
-        $this->model = config('ai.open_ai.default_model');
+        $this->apiKey = config('open-ai.api_key');
+        $this->model = config('open-ai.default_model');
     }
 
     public function sendRequest()
