@@ -55,8 +55,12 @@ Retrieve as XML
 ### Tested Models (Limited to `GPT Models`)
 | Model | Note | Date|
 | ------------- | ------------- |-----:|
+|`gpt-3.5-turbo-1106`|| Nov 22, 2023|
+|`gpt-3.5-turbo-16k`|| Nov 22, 2023|
 |`gpt-3.5-turbo`|**`default`**| Nov 20, 2023|
-| `gpt-3.5-turbo-1106`| | Nov 20, 2023|
-| `gpt-4` | The account must reach at minimum **Tier 1** status. |  Nov 20, 2023|
-| `gpt-4-vision-preview` | The account must reach at minimum **Tier 1** status. |  Nov 20, 2023|
+|`gpt-3.5-turbo-1106`| | Nov 20, 2023|
+|`gpt-4` | The account must reach at minimum **Tier 1** status. |  Nov 20, 2023|
+|`gpt-4-vision-preview` | The account must reach at minimum **Tier 1** status. |  Nov 20, 2023|
+|`gpt-4-0613` | The account must reach at minimum **Tier 1** status. |  Nov 22, 2023|
+|`gpt-4-1106-preview` | The account must reach at minimum **Tier 1** status. |  Nov 22, 2023|
 > Note: Please be advised that other GPT models may be utilized at your discretion, acknowledging associated risks.

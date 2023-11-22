@@ -9,7 +9,6 @@ trait Validation
     public function validatePreRequisites(): void
     {
         $this->validateApiKey();
-        $this->validateModel();
         $this->validateQuery();
     }
     /**
