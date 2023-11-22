@@ -3,13 +3,6 @@
 ***
 A Laravel Package that facilitates effortless integration of the OpenAI API into PHP applications, ensuring seamless connectivity and interaction with OpenAI's services within the Laravel Framework.
 
-| Tested Models (Limited to `GPT Models`)| Note | Date|
-| ------------- | ------------- |-----:|
-|`gpt-3.5-turbo`|**`default`**| Nov 20, 2023|
-| `gpt-3.5-turbo-1106`| | Nov 20, 2023|
-| `gpt-4` | The account must reach at minimum **Tier 1** status. |  Nov 20, 2023|
-| `gpt-4-vision-preview` | The account must reach at minimum **Tier 1** status. |  Nov 20, 2023|
-> Note: Please be advised that other GPT models may be utilized at your discretion, acknowledging associated risks.
 ---
 ## Installation
 Install the package via Composer [Reference](https://packagist.org/packages/marxolity/open-ai):
@@ -59,3 +52,11 @@ Retrieve as XML
 ```php
    $responseXml = OpenAi::query("What is Laravel?")->send()->toXml();
 ```
+### Tested Models (Limited to `GPT Models`)
+| Model | Note | Date|
+| ------------- | ------------- |-----:|
+|`gpt-3.5-turbo`|**`default`**| Nov 20, 2023|
+| `gpt-3.5-turbo-1106`| | Nov 20, 2023|
+| `gpt-4` | The account must reach at minimum **Tier 1** status. |  Nov 20, 2023|
+| `gpt-4-vision-preview` | The account must reach at minimum **Tier 1** status. |  Nov 20, 2023|
+> Note: Please be advised that other GPT models may be utilized at your discretion, acknowledging associated risks.
