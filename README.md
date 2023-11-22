@@ -1,5 +1,5 @@
 # OpenAI API Integration - Laravel
-![uptime](https://img.shields.io/badge/uptime-100%25-brightgreen) [![License](http://poser.pugx.org/marxolity/open-ai/license)](https://packagist.org/packages/marxolity/open-ai) [![Total Downloads](http://poser.pugx.org/marxolity/open-ai/downloads)](https://packagist.org/packages/marxolity/open-ai/) [![Latest Stable Version](http://poser.pugx.org/marxolity/open-ai/v)](https://packagist.org/packages/marxolity/open-ai)
+![uptime](https://img.shields.io/badge/uptime-100%25-brightgreen) [![License](http://poser.pugx.org/marxolity/open-ai/license)](https://packagist.org/packages/marxolity/open-ai) [![Total Downloads](http://poser.pugx.org/marxolity/open-ai/downloads)](https://packagist.org/packages/marxolity/open-ai/)
 ***
 A Laravel Package that facilitates effortless integration of the OpenAI API into PHP applications, ensuring seamless connectivity and interaction with OpenAI's services within the Laravel Framework.
 
