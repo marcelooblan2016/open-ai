@@ -12,7 +12,6 @@ class OpenAi extends Base implements AiInterface, ResponseInterface, ValidationI
     use Validation, Response;
     /**
      * send the request build to openai endpoint
-     * @return string (XML or JSON)
      **/
     public function send(): self
     {
@@ -25,7 +24,7 @@ class OpenAi extends Base implements AiInterface, ResponseInterface, ValidationI
         // Parse Message
         $responseMessage = Arr::get($this->responseRaw, 'choices.0.message.content');
         // Error Message
-        if (empty($responseMessage)) $responseMessage = Arr::get($this->responseRaw, 'error.message');
+        if (empty($responseMessage)) $responseMessage = Arr::get($this->responseRaw, 'error.message'); // @phpstan-ignore argument.type
         // Set response message
         $this->responseMessage = $responseMessage;
 

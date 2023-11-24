@@ -2,33 +2,31 @@
 
 namespace Marxolity\OpenAi\Services\Ai;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Client\Response;
 
 class Base
 {
-    // Response
-    public $responseRaw;
-    public $responseMessage;
-    // Api
-    protected $apiKey;
-    // Models
-    protected $model;
-    protected $allowedModels = [
-        // GPT 3
+    /** @var ?array<mixed> */
+    public ?array $responseRaw;
+    public ?string $responseMessage;
+    protected string $apiKey = '';
+    protected string $model = '';
+    /** @var array<string> */
+    protected array $allowedModels = [
         'gpt-3.5-turbo', 'gpt-3.5-turbo-1106',
-        // GPT 4 (Tier 1 & Up)
         'gpt-4', 'gpt-4-vision-preview'
     ];
-    // Content
-    protected $contentQuery;
-    // End points
-    protected $endPoint = 'https://api.openai.com/v1/chat/completions';
+    /** @var string */
+    protected string $contentQuery;
+    /** @var string */
+    protected string $endPoint = 'https://api.openai.com/v1/chat/completions';
 
     public function __construct() {
         $this->apiKey = config('open-ai.api_key');
         $this->model = config('open-ai.default_model');
     }
 
-    public function sendRequest()
+    public function sendRequest(): Response
     {
         return Http::withToken($this->apiKey)->acceptJson()->post($this->endPoint, [
             "model" => $this->model,
