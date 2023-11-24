@@ -15,16 +15,15 @@ trait Response
         return collect($this->responseRaw)->toJson();
     }
     /**
-     * $this->responseRaw
-     * @return string
+     * @return string|false Return XML string or false.
      **/
-    public function toXml(): string
+    public function toXml()
     {
         return $this->arrayToXml($this->responseRaw);
     }
     /**
      * $this->responseRaw
-     * @return array
+     * @return array<mixed>
      **/
     public function toArray(): array
     {
